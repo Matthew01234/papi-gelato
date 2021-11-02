@@ -1,7 +1,9 @@
 print ('Welkom bij Papi Gelato')
 
 
-
+prijshoorentje = 1,25
+prijsbakje = 0,75
+prijsbolletjes = 1,25
 
 
 def bestellen():
@@ -53,16 +55,27 @@ def bestellen():
                 x = False
                 o = False
             else: print ('Sorry, dat snap ik niet') 
-        return aantalBolletjes
+        return aantalBolletjes, hoorentjeofbakje
 
-bestellen() 
 
-def bonnentje():
+
+
+def bonnentje(hoorentjeofbakje,aantalBolletjes ):
     print ('--------------["Papi Gelato"]--------------')
     print ('Bedankt voor je bestelling hierbij uw bon!')
+    if aantalBolletjes > ('0'):
+        print ('bolletjes:' + aantalBolletjes * prijsbolletjes)
+    if hoorentjeofbakje == ('A'):
+        print ('Hoorentje: '+ prijshoorentje +'')
+    if hoorentjeofbakje == ('B'):
+        print ('Bakje: '+ prijsbakje +'')
 
 
 
 
 
-    
+bestellen() 
+bonnentje()
+
+
+
