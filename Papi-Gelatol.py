@@ -55,7 +55,14 @@ def bestellen():
             else: print ('Sorry, dat snap ik niet') 
         return aantalBolletjes
 
+bestellen() 
+
+def bonnentje():
+    print ('--------------["Papi Gelato"]--------------')
+    print ('Bedankt voor je bestelling hierbij uw bon!')
+
+
+
 
 
     
-bestellen()
