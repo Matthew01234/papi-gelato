@@ -4,12 +4,16 @@ print ('Welkom bij Papi Gelato')
 prijshoorentje = 1.25
 prijsbakje = 0.75
 prijsbolletjes = 1.25
+prijsSlagroom = 0,5
+prijsSprinkels = 0,3
+prijsCaramel = ''
 aantalBolletjes = 0
 totaalAantalBolletjes = 0
 hoorentjeofbakje = ''
 totaalAantalHoorentjes = 0
 totaalAantalBakjes = 0
 totaal = 0
+
 
 
 def bonnentje():
@@ -35,6 +39,7 @@ def bestellen():
             y = 0
             while y < aantalBolletjes:
                 y += 1
+                topping = input ('Welke topping wil je ')
                 smaak =  input ('Welke smaak wilt u voor bolletje nummer '+ str(y) + '? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ')
                 if smaak.upper() in "ACMV": print () 
                 else: 
