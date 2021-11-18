@@ -8,7 +8,7 @@ totaalAantalHoorentjes = 0
 prijsbakje = 0.75
 totaalAantalBakjes = 0
 
-prijsbolletjes = 1.25
+prijsbolletjes = 0.95
 aantalBolletjes = 0
 totaalAantalBolletjes = 0
 
@@ -37,7 +37,7 @@ def zakelijkbestellen ():
         if smaakzakelijk in ['A','C','M','V']:
             x += 1
 
-        else: print ('Sorry dit snap ik niet '); continue
+        else: print ('Sorry dat is geen optie die we aanbieden... '); continue
     bonnentje()
 
 
@@ -59,7 +59,7 @@ def bonnentje():
         print ('Liters ijs: '+ str(liter) +' x '+ str(prijsliter) + '='+ str(prijsliter * liter)+'')  
     print (f'Totaal: € {totaal}')
     if zakelijk == ('2'):
-        print (f'btw : {totaal  * 0.09} ')
+        print (f'btw : {totaal  * 0.06} ')
     print ('--------------["Papi Gelato"]--------------')
 
 def kiesTopping():
@@ -96,7 +96,7 @@ def bestellen():
                 smaak =  input ('Welke smaak wilt u voor bolletje nummer '+ str(y) + '? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ')
                 if smaak.upper() in     "ACMV": print () 
                 else: 
-                    print ('Sorry, dat snap ik niet...')  
+                    print ('Sorry dat is geen optie die we aanbieden...')  
                     y -= 1   
                 
             kiesTopping()
@@ -115,7 +115,7 @@ def bestellen():
                 
               
                     
-            else: print ('Sorry, dat snap ik niet...') 
+            else: print ('Sorry dat is geen optie die we aanbieden...') 
 
         elif aantalBolletjes in [4,5,6,7,8]:
             y = 0
@@ -127,13 +127,13 @@ def bestellen():
                 smaak =  input ('Welke smaak wilt u voor bolletje nummer '+ str(y) + '? A) Aardbei, C) Chocolade, M) Munt of V) Vanille? ')
                 if smaak.upper() in "ACMV": print () 
                 else: 
-                    print ('Sorry, dat snap ik niet...')  
+                    print ('Sorry dat is geen optie die we aanbieden...')  
                     y -= 1  
             kiesTopping()
         elif aantalBolletjes > int((8)):
             print('Sorry zulke grote bakken hebben we niet')
             bestellen()
-        else: print ('Sorry dat snap ik niet...') 
+        else: print ('Sorry dat is geen optie die we aanbieden...') 
         o = True
         while o == True:
             opnieuwbestellen = input ('Wil je op nieuw bestellen Ja (J) of Nee (N)').upper()
@@ -146,7 +146,7 @@ def bestellen():
                 x = False
                 o = False
                 bonnentje()
-            else: print ('Sorry, dat snap ik niet') 
+            else: print ('Sorry dat is geen optie die we aanbieden...') 
         return aantalBolletjes, hoorentjeofbakje
 
 
