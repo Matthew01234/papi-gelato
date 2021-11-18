@@ -21,15 +21,30 @@ totaalAantalSlagroom = 0
 totaalAantalSprinkels = 0
 totaalAantalCaramel = 0 
 totaalAantalTopping = 0
-totaal = 0
+totaal = 0.0
+
+liter = 0
+prijsliter = 9.8
 
 
+def zakelijkbestellen ():
+    global liter
+    x = 1
+    liter = int(input('Hoeveel liter wilt u?: '))
+    while x <= liter:
+        
+        smaakzakelijk = input ('Welke smaak wilt u voor liter nummer '+ str(x) + ' A) Aardbei, C) Chocolade, M) Munt of V) Vanille?: ').upper()
+        if smaakzakelijk in ['A','C','M','V']:
+            x += 1
+
+        else: print ('Sorry dit snap ik niet '); continue
+    bonnentje()
 
 
 
 def bonnentje():
-    global aantalBolletjes, hoorentjeofbakje, totaalAantalBolletjes, totaalAantalHoorentjes, totaalAantalBakjes,totaalAantalSlagroom, prijsSlagroom,prijsSprinkels,totaalAantalSprinkels
-    totaal = (totaalAantalBolletjes * prijsbolletjes) + (totaalAantalHoorentjes * prijshoorentje) + (totaalAantalBakjes * prijsbakje) + totaalAantalSlagroom * prijsSlagroom + totaalAantalSprinkels * prijsSprinkels * aantalBolletjes +prijsCaramelhorentje + prijsCaramelbakje
+    global aantalBolletjes, hoorentjeofbakje, totaalAantalBolletjes, totaalAantalHoorentjes, totaalAantalBakjes,totaalAantalSlagroom, prijsSlagroom,prijsSprinkels,totaalAantalSprinkels , liter, zakelijk, totaal
+    totaal = totaalAantalBolletjes * prijsbolletjes + totaalAantalHoorentjes * prijshoorentje + totaalAantalBakjes * prijsbakje + totaalAantalSlagroom * prijsSlagroom + totaalAantalSprinkels * prijsSprinkels * aantalBolletjes +prijsCaramelhorentje + prijsCaramelbakje + liter * prijsliter
     print ('--------------["Papi Gelato"]--------------')
     print ('Bedankt voor je bestelling hierbij uw bon!')
     if aantalBolletjes > 0:
@@ -40,7 +55,11 @@ def bonnentje():
         print (f'Bakje: {totaalAantalBakjes} x {prijsbakje} = € '+ str(totaalAantalBakjes * prijsbakje) +'')
     if totaalAantalTopping > 0:
         print (f'topping: {totaalAantalTopping} =    €'+ str(totaalAantalSlagroom * prijsSlagroom + totaalAantalSprinkels * prijsSprinkels * aantalBolletjes +prijsCaramelhorentje + prijsCaramelbakje) + '')
+    if zakelijk == ('2'):
+        print ('Liters ijs: '+ str(liter) +' x '+ str(prijsliter) + '='+ str(prijsliter * liter)+'')  
     print (f'Totaal: € {totaal}')
+    if zakelijk == ('2'):
+        print (f'btw : {totaal  * 0.09} ')
     print ('--------------["Papi Gelato"]--------------')
 
 def kiesTopping():
@@ -68,6 +87,7 @@ def bestellen():
     global aantalBolletjes, hoorentjeofbakje, totaalAantalBolletjes, totaalAantalHoorentjes, totaalAantalBakjes, prijsCaramelhorentje, prijsCaramelbakje
     x = True
     while x == True:
+        
         aantalBolletjes = int(str(input('Hoeveel bolletjes wil je? ')))
         if aantalBolletjes in [1,2,3]:
             y = 0
@@ -136,9 +156,14 @@ def bestellen():
 
 
 
+zakelijk = input ('Bent u 1) particulier of 2) zakelijk? ') 
+if zakelijk == '1':
+    bestellen()
+
+if zakelijk == '2':
+    zakelijkbestellen()
 
 
-bestellen() 
 
 
 
